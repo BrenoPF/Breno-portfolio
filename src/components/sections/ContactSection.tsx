@@ -6,14 +6,14 @@ const ContactSection = () => {
     {
       name: "LinkedIn",
       icon: Linkedin,
-      href: "https://linkedin.com/in/",
+      href: "https://www.linkedin.com/in/breno-pereira-985a49140/",
       description: "Conecte-se profissionalmente",
       color: "hover:bg-[#0077B5]/10 hover:border-[#0077B5]/50 hover:text-[#0077B5]",
     },
     {
       name: "GitHub",
       icon: Github,
-      href: "https://github.com/",
+      href: "https://github.com/BrenoPF",
       description: "Veja meu código",
       color: "hover:bg-foreground/10 hover:border-foreground/50",
     },
@@ -67,7 +67,7 @@ const ContactSection = () => {
 
           {/* Primary CTA */}
           <Button variant="glow" size="xl" asChild>
-            <a href="mailto:dev@email.com">
+            <a href="https://api.whatsapp.com/send/?phone=61983440402&text&type=phone_number&app_absent=0">
               <Send className="mr-2" />
               Enviar mensagem
             </a>

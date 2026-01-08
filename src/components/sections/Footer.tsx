@@ -47,9 +47,7 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
             {/* Copyright */}
             <p className="flex items-center gap-1">
-              © {currentYear} DevName. Feito com
-              <Heart size={14} className="text-destructive fill-destructive" />
-              e muito café
+              © {currentYear} Breno Pereira. 
             </p>
 
             {/* Tech Stack */}

@@ -4,13 +4,13 @@ import { ExternalLink, Github, ArrowUpRight } from "lucide-react";
 const ProjectsSection = () => {
   const projects = [
     {
-      title: "E-commerce Platform",
-      description: "Plataforma completa de e-commerce com painel admin, gestão de produtos, pagamentos integrados e dashboard de analytics em tempo real.",
-      problem: "Loja precisava escalar de 100 para 10.000 pedidos/dia sem perder performance.",
-      role: "Tech Lead & Fullstack Developer",
+      title: "Meu IPVA",
+      description: "O site é uma calculadora gratuita que permite aos usuários estimar o valor do IPVA para o ano de 2026.",
+      problem: "Os sites de cálculo de IPVA geralmente solicitam diversos dados do usuário para exibir o valor do imposto.",
+      role: "Fullstack Developer",
       results: ["99.9% uptime", "Load time < 2s", "+300% conversão"],
       techs: ["Next.js", "Node.js", "PostgreSQL", "Stripe", "Redis"],
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&auto=format&fit=crop&q=60",
+      image: "https://images.pexels.com/photos/164634/pexels-photo-164634.jpeg?_gl=1*1rkivbh*_ga*ODQ4MTc3ODM4LjE3Njc0MDY5MjU.*_ga_8JE65Q40S6*czE3Njc0MDY5MjQkbzEkZzEkdDE3Njc0MDY5NDQkajQwJGwwJGgw",
       demo: "#",
       github: "#",
       featured: true,

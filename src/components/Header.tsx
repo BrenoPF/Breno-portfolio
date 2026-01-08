@@ -37,7 +37,7 @@ const Header = () => {
             <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
               <Code2 size={20} className="text-primary" />
             </div>
-            <span className="font-bold text-lg">DevName</span>
+            <span className="font-bold text-lg">Breno Pereira</span>
           </a>
 
           {/* Desktop Navigation */}

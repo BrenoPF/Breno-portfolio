@@ -79,7 +79,7 @@ const HeroSection = () => {
           {/* Social Links */}
           <div className="flex items-center justify-center gap-4 animate-fade-up" style={{ animationDelay: '0.6s' }}>
             <a
-              href="https://github.com"
+              href="https://github.com/BrenoPF"
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 rounded-lg border border-border bg-card/50 text-muted-foreground hover:text-foreground hover:border-primary/50 hover:bg-primary/5 transition-all"
@@ -88,7 +88,7 @@ const HeroSection = () => {
               <Github size={20} />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/breno-pereira-985a49140/"
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 rounded-lg border border-border bg-card/50 text-muted-foreground hover:text-foreground hover:border-primary/50 hover:bg-primary/5 transition-all"
