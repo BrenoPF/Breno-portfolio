@@ -21,4 +21,5 @@ export default defineConfig(({ mode }) => ({
     environment: "jsdom",
     setupFiles: "./src/test/setup.ts",
   },
+  base: "/ai-dev-portfolio/",
 }));
