@@ -21,7 +21,7 @@ const ContactSection = () => {
       name: "Email",
       icon: Mail,
       href: "mailto:dev@email.com",
-      description: "dev@email.com",
+      description: "",
       color: "hover:bg-primary/10 hover:border-primary/50 hover:text-primary",
     },
   ];

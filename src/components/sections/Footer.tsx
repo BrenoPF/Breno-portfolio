@@ -4,8 +4,8 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { icon: Github, href: "https://github.com", label: "GitHub" },
-    { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
+    { icon: Github, href: "https://github.com/BrenoPF", label: "GitHub" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/breno-pereira-985a49140/", label: "LinkedIn" },
     { icon: Mail, href: "mailto:dev@email.com", label: "Email" },
   ];
 
@@ -21,7 +21,7 @@ const Footer = () => {
               <div className="p-2 rounded-lg bg-primary/10">
                 <Code2 size={20} className="text-primary" />
               </div>
-              <span className="font-bold text-lg">DevName</span>
+              <span className="font-bold text-lg">Breno Pereira</span>
             </div>
 
             {/* Social Links */}

@@ -17,7 +17,7 @@ const AISection = () => {
     },
     {
       icon: MessageSquare,
-      name: "ChatGPT & Claude",
+      name: "Google Gemini",
       usage: "Arquitetura, debug, documentação, code review",
     },
     {

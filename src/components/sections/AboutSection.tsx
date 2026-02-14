@@ -4,7 +4,7 @@ const AboutSection = () => {
   const highlights = [
     {
       icon: Code2,
-      title: "5+ Anos de Experiência",
+      title: "1 Ano de Experiência",
       description: "Desenvolvendo soluções web escaláveis",
     },
     {

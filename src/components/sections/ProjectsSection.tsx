@@ -11,23 +11,23 @@ const ProjectsSection = () => {
       results: ["99.9% uptime", "Load time < 2s", "+300% conversão"],
       techs: ["Next.js", "Node.js", "PostgreSQL", "Stripe", "Redis"],
       image: "https://images.pexels.com/photos/164634/pexels-photo-164634.jpeg?_gl=1*1rkivbh*_ga*ODQ4MTc3ODM4LjE3Njc0MDY5MjU.*_ga_8JE65Q40S6*czE3Njc0MDY5MjQkbzEkZzEkdDE3Njc0MDY5NDQkajQwJGwwJGgw",
-      demo: "#",
-      github: "#",
+      demo: "https://www.meuipva.com/",
+      github: "https://github.com/BrenoPF/ipva-2026",
       featured: true,
     },
     {
-      title: "AI Content Generator",
-      description: "Ferramenta SaaS que usa GPT-4 para gerar conteúdo otimizado para SEO, com editor colaborativo e histórico de versões.",
-      problem: "Agências gastavam 8h por artigo. Com a ferramenta, reduziu para 30min.",
+      title: "ecommerce-syntaxwear",
+      description: "Site que vende sneakers.",
+      problem: "Não tinha um site para vender as sneakers.",
       role: "Fullstack Developer",
-      results: ["10.000+ usuários", "2M+ textos gerados", "NPS 72"],
-      techs: ["React", "Python", "OpenAI API", "MongoDB", "AWS"],
-      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&auto=format&fit=crop&q=60",
-      demo: "#",
-      github: "#",
+      results: ["Site funcional", ""],
+      techs: ["JavaScript", "Node.js", "CSS", "HTML"],
+      image: "",
+      demo: "https://brenopf.github.io/ecommerce-syntaxwear/",
+      github: "https://github.com/BrenoPF/ecommerce-syntaxwear", 
       featured: true,
     },
-    {
+   /* {
       title: "Real-time Dashboard",
       description: "Dashboard de monitoramento em tempo real para operações de logística com mapas interativos e alertas inteligentes.",
       problem: "Empresa não tinha visibilidade em tempo real de sua frota de 500 veículos.",
@@ -38,7 +38,7 @@ const ProjectsSection = () => {
       demo: "#",
       github: "#",
       featured: false,
-    },
+    },*/
   ];
 
   return (
@@ -107,6 +107,8 @@ const ProjectsSection = () => {
                     <div className="flex gap-2">
                       <a
                         href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="p-2 rounded-lg border border-border hover:border-primary/50 hover:bg-primary/5 transition-colors"
                         aria-label="GitHub"
                       >
@@ -114,6 +116,8 @@ const ProjectsSection = () => {
                       </a>
                       <a
                         href={project.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="p-2 rounded-lg border border-border hover:border-primary/50 hover:bg-primary/5 transition-colors"
                         aria-label="Live Demo"
                       >
@@ -153,7 +157,7 @@ const ProjectsSection = () => {
           {/* View All Button */}
           <div className="text-center mt-12">
             <Button variant="outline" size="lg" asChild>
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/BrenoPF" target="_blank" rel="noopener noreferrer">
                 Ver todos os projetos no GitHub
                 <ExternalLink className="ml-2" size={16} />
               </a>

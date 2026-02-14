@@ -3,42 +3,26 @@ import { Building2, Calendar, ChevronRight } from "lucide-react";
 const ExperienceSection = () => {
   const experiences = [
     {
-      company: "TechCorp Solutions",
-      role: "Senior Fullstack Developer",
-      period: "2022 - Presente",
+      company: "Moovus",
+      role: "Suporte Técnico",
+      period: "2024 - atual",
       type: "Full-time",
-      description: "Liderança técnica em squad de produto, desenvolvendo features core da plataforma SaaS.",
+      description: " Análise e resolução de chamados via Jira com foco em experiência do usuário.",
       achievements: [
-        "Arquitetou microsserviços que suportam 1M+ requisições/dia",
-        "Reduziu tempo de deploy de 2h para 15min com CI/CD",
-        "Mentorou 4 desenvolvedores júnior",
-        "Implementou IA para automação de testes (+60% cobertura)",
+        "Identificação de inconsistências cadastrais e melhoria de processos internos.",
+        "Forte atuação em diagnóstico de problemas e comunicação técnica.",
       ],
     },
     {
-      company: "StartupX",
-      role: "Fullstack Developer",
-      period: "2020 - 2022",
-      type: "Full-time",
-      description: "Desenvolvimento de MVP a produto escalável em fintech de pagamentos.",
-      achievements: [
-        "Desenvolveu sistema de pagamentos processando R$10M+/mês",
-        "Integrou 5 gateways de pagamento diferentes",
-        "Criou dashboard de analytics em tempo real",
-        "Reduziu bugs em produção em 70% com testes automatizados",
-      ],
-    },
-    {
-      company: "Agência Digital",
+      company: "Desenvolvedor Freelancer",
       role: "Frontend Developer",
-      period: "2018 - 2020",
-      type: "Full-time",
-      description: "Desenvolvimento de interfaces para clientes enterprise.",
+      period: "2025-2026",
+      type: "",
+      description: "Desenvolvimento de landing pages responsivas utilizando HTML, CSS e JavaScript.",
       achievements: [
-        "Entregou 20+ projetos para clientes Fortune 500",
-        "Migrou legacy jQuery para React, melhorando performance em 3x",
-        "Implementou design system usado em 10+ projetos",
-        "Treinou equipe em React e metodologias ágeis",
+        "Integração com APIs REST e consumo de dados em JSON",
+        "Correção de bugs e melhorias de performance",
+        "Versionamento de código com Git"
       ],
     },
   ];
