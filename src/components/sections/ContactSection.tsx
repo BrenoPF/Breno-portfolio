@@ -67,7 +67,7 @@ const ContactSection = () => {
 
           {/* Primary CTA */}
           <Button variant="glow" size="xl" asChild>
-            <a href="https://api.whatsapp.com/send/?phone=61983440402&text&type=phone_number&app_absent=0">
+            <a href="https://api.whatsapp.com/send/?phone=61983440402&text&type=phone_number&app_absent=0" target="_blank">
               <Send className="mr-2" />
               Enviar mensagem
             </a>
