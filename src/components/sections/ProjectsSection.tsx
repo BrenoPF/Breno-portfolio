@@ -27,6 +27,18 @@ const ProjectsSection = () => {
       github: "https://github.com/BrenoPF/ecommerce-syntaxwear", 
       featured: true,
     },
+    {
+      title: "Visualizador Perfil GitHub",
+      description: "Uma aplicação web minimalista (Frontend puro) que consome a API oficial do GitHub para buscar e exibir dados completos de um desenvolvedor, incluindo foto, bio.",
+      problem: ".",
+      role: "Fullstack Developer",
+      results: ["Site funcional", ""],
+      techs: ["JavaScript", "CSS", "HTML"],
+      image: "",
+      demo: "https://brenopf.github.io/visualizador-perfil-github/",
+      github: "https://github.com/BrenoPF/visualizador-perfil-github", 
+      featured: true,
+    },
    /* {
       title: "Real-time Dashboard",
       description: "Dashboard de monitoramento em tempo real para operações de logística com mapas interativos e alertas inteligentes.",
