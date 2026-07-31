@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail, Heart, Code2 } from "lucide-react";
+import { Github, Linkedin, Mail } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -9,62 +9,36 @@ const Footer = () => {
     { icon: Mail, href: "mailto:dev@email.com", label: "Email" },
   ];
 
-  const techStack = ["React", "TypeScript", "Tailwind CSS", "Vite"];
+  const techStack = ["React", "TypeScript", "Tailwind", "Vite"];
 
   return (
-    <footer className="py-12 border-t border-border bg-card/30">
+    <footer className="py-10 border-t border-foreground/20">
       <div className="container">
-        <div className="max-w-5xl mx-auto">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            {/* Logo / Name */}
-            <div className="flex items-center gap-2">
-              <div className="p-2 rounded-lg bg-primary/10">
-                <Code2 size={20} className="text-primary" />
-              </div>
-              <span className="font-bold text-lg">Breno Pereira</span>
-            </div>
-
-            {/* Social Links */}
-            <div className="flex items-center gap-3">
-              {socialLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-2.5 rounded-lg border border-border bg-card text-muted-foreground hover:text-foreground hover:border-primary/50 transition-all"
-                  aria-label={link.label}
-                >
-                  <link.icon size={18} />
-                </a>
-              ))}
-            </div>
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
+          <div>
+            <span className="font-display uppercase text-2xl leading-none">Breno Pereira</span>
+            <p className="eyebrow mt-2">Desenvolvedor Fullstack — Brasília, BR</p>
           </div>
 
-          {/* Divider */}
-          <div className="my-8 h-px bg-border" />
-
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-            {/* Copyright */}
-            <p className="flex items-center gap-1">
-              © {currentYear} Breno Pereira. 
-            </p>
-
-            {/* Tech Stack */}
-            <div className="flex items-center gap-2">
-              <span>Construído com:</span>
-              <div className="flex gap-2">
-                {techStack.map((tech) => (
-                  <span
-                    key={tech}
-                    className="px-2 py-1 text-xs font-mono bg-secondary rounded"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
+          <div className="flex items-center gap-6">
+            {socialLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="link-sweep text-muted-foreground hover:text-foreground transition-colors"
+                aria-label={link.label}
+              >
+                <link.icon size={18} />
+              </a>
+            ))}
           </div>
+        </div>
+
+        <div className="mt-8 pt-5 border-t border-foreground/15 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 font-mono text-[0.7rem] uppercase tracking-[0.18em] text-muted-foreground">
+          <p>© {currentYear} Breno Pereira</p>
+          <p>{techStack.join(" · ")}</p>
         </div>
       </div>
     </footer>
