@@ -56,7 +56,7 @@ const HeroSection = () => {
           <div className="lg:col-span-7 min-w-0">
             <h1
               ref={titleRef}
-              className="display-xl text-[clamp(2.6rem,12vw,4.5rem)] lg:text-[clamp(3.2rem,6.4vw,6.5rem)] [text-wrap:balance] break-words animate-fade-up will-change-transform"
+              className="display-xl text-[clamp(2.6rem,12vw,4.5rem)] lg:text-[clamp(2.6rem,5.1vw,5.4rem)] break-normal [overflow-wrap:normal] animate-fade-up will-change-transform"
               style={{ animationDelay: "0.1s" }}
             >
               Desenvolvedor
