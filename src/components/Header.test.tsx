@@ -5,6 +5,6 @@ import { describe, it, expect } from "vitest";
 describe("Header", () => {
     it("renders the logo text", () => {
         render(<Header />);
-        expect(screen.getByText("DevName")).toBeInTheDocument();
+        expect(screen.getByText("Breno Pereira")).toBeInTheDocument();
     });
 });
