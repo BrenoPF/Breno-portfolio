@@ -1,16 +1,23 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Download, Github, Linkedin } from "lucide-react";
 
 const HeroSection = () => {
   const techStack = ["React", "Node.js", "TypeScript", "Next.js", "AI/LLM"];
-  const [offset, setOffset] = useState(0);
+  const titleRef = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     let frame = 0;
+    let ticking = false;
     const onScroll = () => {
-      cancelAnimationFrame(frame);
-      frame = requestAnimationFrame(() => setOffset(window.scrollY));
+      if (ticking) return;
+      ticking = true;
+      frame = requestAnimationFrame(() => {
+        const el = titleRef.current;
+        if (el) el.style.transform = `translate3d(0, ${window.scrollY * -0.05}px, 0)`;
+        ticking = false;
+      });
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => {
@@ -20,7 +27,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-end overflow-hidden pt-32 pb-16">
+    <section className="relative min-h-[92svh] flex items-center overflow-hidden pt-32 pb-20">
       {/* Editorial rules */}
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.07]"
@@ -44,15 +51,13 @@ const HeroSection = () => {
           <span className="eyebrow">Brasília — BR</span>
         </div>
 
-        <div className="grid lg:grid-cols-12 gap-10 items-end">
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-end">
           {/* Headline */}
-          <div className="lg:col-span-8">
+          <div className="lg:col-span-7 min-w-0">
             <h1
-              className="display-xl text-[15vw] sm:text-[11vw] lg:text-[8.2vw] animate-fade-up"
-              style={{
-                animationDelay: "0.1s",
-                transform: `translateY(${offset * -0.04}px)`,
-              }}
+              ref={titleRef}
+              className="display-xl text-[clamp(2.6rem,12vw,4.5rem)] lg:text-[clamp(3.2rem,6.4vw,6.5rem)] [text-wrap:balance] break-words animate-fade-up will-change-transform"
+              style={{ animationDelay: "0.1s" }}
             >
               Desenvolvedor
               <br />
@@ -63,7 +68,7 @@ const HeroSection = () => {
           </div>
 
           {/* Side column */}
-          <div className="lg:col-span-4 lg:border-l lg:border-foreground/20 lg:pl-8 space-y-7 animate-fade-up" style={{ animationDelay: "0.3s" }}>
+          <div className="lg:col-span-5 min-w-0 lg:border-l lg:border-foreground/20 lg:pl-8 space-y-7 animate-fade-up" style={{ animationDelay: "0.3s" }}>
             <p className="text-base leading-relaxed text-muted-foreground">
               Transformo ideias em produtos digitais escaláveis com{" "}
               <span className="text-foreground font-medium">JavaScript moderno</span> e{" "}
