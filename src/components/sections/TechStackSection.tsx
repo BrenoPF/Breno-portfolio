@@ -1,19 +1,9 @@
-import { 
-  Code2, 
-  Server, 
-  Database, 
-  Cloud, 
-  Sparkles,
-  Layers
-} from "lucide-react";
+import Reveal from "@/components/Reveal";
 
 const TechStackSection = () => {
   const categories = [
     {
       title: "Frontend",
-      icon: Code2,
-      color: "text-cyan-400",
-      bgColor: "bg-cyan-400/10",
       techs: [
         { name: "React", level: "Expert" },
         { name: "Next.js", level: "Expert" },
@@ -25,9 +15,6 @@ const TechStackSection = () => {
     },
     {
       title: "Backend",
-      icon: Server,
-      color: "text-emerald-400",
-      bgColor: "bg-emerald-400/10",
       techs: [
         { name: "Node.js", level: "Expert" },
         { name: "Express", level: "Expert" },
@@ -39,9 +26,6 @@ const TechStackSection = () => {
     },
     {
       title: "Banco de Dados",
-      icon: Database,
-      color: "text-amber-400",
-      bgColor: "bg-amber-400/10",
       techs: [
         { name: "PostgreSQL", level: "Expert" },
         { name: "MongoDB", level: "Avançado" },
@@ -53,9 +37,6 @@ const TechStackSection = () => {
     },
     {
       title: "DevOps & Infra",
-      icon: Cloud,
-      color: "text-violet-400",
-      bgColor: "bg-violet-400/10",
       techs: [
         { name: "Docker", level: "Avançado" },
         { name: "AWS", level: "Avançado" },
@@ -67,9 +48,6 @@ const TechStackSection = () => {
     },
     {
       title: "IA Aplicada",
-      icon: Sparkles,
-      color: "text-primary",
-      bgColor: "bg-primary/10",
       highlight: true,
       techs: [
         { name: "ChatGPT/Claude", level: "Expert" },
@@ -82,9 +60,6 @@ const TechStackSection = () => {
     },
     {
       title: "Outras Skills",
-      icon: Layers,
-      color: "text-rose-400",
-      bgColor: "bg-rose-400/10",
       techs: [
         { name: "Git/GitHub", level: "Expert" },
         { name: "Agile/Scrum", level: "Avançado" },
@@ -97,70 +72,55 @@ const TechStackSection = () => {
   ];
 
   return (
-    <section id="stack" className="py-24 relative bg-card/30">
+    <section id="stack" className="py-24 lg:py-32 border-t border-foreground/20 bg-secondary/40">
       <div className="container">
-        <div className="max-w-6xl mx-auto">
-          {/* Section Header */}
-          <div className="text-center mb-16">
-            <span className="inline-block px-3 py-1 text-sm font-mono text-primary bg-primary/10 rounded-full mb-4">
-              Stack Técnica
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-              Tecnologias que{" "}
-              <span className="text-gradient">domino</span>
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Um arsenal completo para construir aplicações modernas, escaláveis e de alta performance.
+        <Reveal>
+          <div className="flex flex-wrap items-end justify-between gap-4 border-b border-foreground/20 pb-6 mb-12">
+            <div>
+              <span className="eyebrow block mb-2">§ Stack técnica</span>
+              <h2 className="font-display text-4xl sm:text-5xl leading-[0.9]">
+                Tecnologias
+                <br />
+                que domino
+              </h2>
+            </div>
+            <p className="max-w-sm text-sm text-muted-foreground">
+              Um arsenal completo para construir aplicações modernas, escaláveis e de alta
+              performance.
             </p>
           </div>
+        </Reveal>
 
-          {/* Tech Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {categories.map((category, idx) => (
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-foreground/15 border border-foreground/15">
+          {categories.map((category, idx) => (
+            <Reveal key={category.title} delay={(idx % 3) * 100}>
               <div
-                key={category.title}
-                className={`group p-6 rounded-xl border transition-all duration-300 hover-lift ${
-                  category.highlight 
-                    ? "border-primary/50 bg-primary/5" 
-                    : "border-border bg-card/50 hover:border-primary/30"
+                className={`h-full p-7 transition-colors duration-500 ${
+                  category.highlight ? "bg-foreground text-background" : "bg-background hover:bg-card"
                 }`}
               >
-                {/* Category Header */}
-                <div className="flex items-center gap-3 mb-5">
-                  <div className={`p-2.5 rounded-lg ${category.bgColor} ${category.color}`}>
-                    <category.icon size={20} />
-                  </div>
-                  <h3 className="text-lg font-semibold">{category.title}</h3>
-                  {category.highlight && (
-                    <span className="ml-auto px-2 py-0.5 text-xs font-medium bg-primary text-primary-foreground rounded-full">
-                      Diferencial
-                    </span>
-                  )}
+                <div className="flex items-baseline justify-between mb-5">
+                  <h3 className="font-display text-lg">{category.title}</h3>
+                  <span className={`font-mono text-[0.7rem] ${category.highlight ? "opacity-70" : "text-muted-foreground"}`}>
+                    {String(idx + 1).padStart(2, "0")}
+                  </span>
                 </div>
 
-                {/* Tech List */}
-                <div className="space-y-3">
+                <ul className={`divide-y ${category.highlight ? "divide-background/25" : "divide-foreground/10"}`}>
                   {category.techs.map((tech) => (
-                    <div
-                      key={tech.name}
-                      className="flex items-center justify-between py-2 px-3 rounded-lg bg-secondary/50 hover:bg-secondary transition-colors"
-                    >
-                      <span className="font-mono text-sm">{tech.name}</span>
-                      <span className={`text-xs font-medium px-2 py-0.5 rounded ${
-                        tech.level === "Expert" 
-                          ? "bg-primary/20 text-primary" 
-                          : tech.level === "Avançado"
-                          ? "bg-emerald-500/20 text-emerald-400"
-                          : "bg-muted text-muted-foreground"
-                      }`}>
+                    <li key={tech.name} className="flex items-center justify-between py-2.5 group">
+                      <span className="font-mono text-sm group-hover:translate-x-1 transition-transform duration-500">
+                        {tech.name}
+                      </span>
+                      <span className={`text-[0.65rem] font-mono uppercase tracking-[0.14em] ${category.highlight ? "opacity-70" : "text-muted-foreground"}`}>
                         {tech.level}
                       </span>
-                    </div>
+                    </li>
                   ))}
-                </div>
+                </ul>
               </div>
-            ))}
-          </div>
+            </Reveal>
+          ))}
         </div>
       </div>
     </section>

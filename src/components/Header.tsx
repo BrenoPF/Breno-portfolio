@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
-import { Menu, X, Code2 } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -24,73 +23,71 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] ${
         isScrolled
-          ? "py-3 bg-background/80 backdrop-blur-xl border-b border-border"
-          : "py-5 bg-transparent"
+          ? "py-3 bg-background/85 backdrop-blur-md border-b border-foreground/15"
+          : "py-6 bg-transparent"
       }`}
     >
       <div className="container">
-        <div className="flex items-center justify-between">
-          {/* Logo */}
-          <a href="#" className="flex items-center gap-2 group">
-            <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
-              <Code2 size={20} className="text-primary" />
-            </div>
-            <span className="font-bold text-lg">Breno Pereira</span>
+        <div className="flex items-center justify-between gap-6">
+          {/* Masthead */}
+          <a href="#" className="flex items-baseline gap-3 group">
+            <span className="font-display uppercase text-base tracking-tight">Breno Pereira</span>
+            <span className="hidden sm:inline eyebrow">Fullstack</span>
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-1">
-            {navLinks.map((link) => (
+          <nav className="hidden md:flex items-center gap-7">
+            {navLinks.map((link, i) => (
               <a
                 key={link.label}
                 href={link.href}
-                className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-secondary"
+                className="link-sweep font-mono text-[0.7rem] uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground transition-colors"
               >
+                <span className="mr-1.5 opacity-40">0{i + 1}</span>
                 {link.label}
               </a>
             ))}
+            <a
+              href="#contato"
+              className="border border-foreground px-5 py-2 font-mono text-[0.7rem] uppercase tracking-[0.2em] hover:bg-foreground hover:text-background transition-colors duration-500"
+            >
+              Contato
+            </a>
           </nav>
-
-          {/* CTA Button */}
-          <div className="hidden md:block">
-            <Button variant="hero" size="default" asChild>
-              <a href="#contato">Contato</a>
-            </Button>
-          </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 rounded-lg hover:bg-secondary transition-colors"
+            className="md:hidden p-2 hover:bg-secondary transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
           >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <nav className="md:hidden mt-4 p-4 rounded-xl border border-border bg-card/95 backdrop-blur-xl animate-fade-up">
-            <div className="flex flex-col gap-2">
+          <nav className="md:hidden mt-4 border border-foreground/20 bg-card animate-fade-up">
+            <div className="flex flex-col divide-y divide-foreground/10">
               {navLinks.map((link) => (
                 <a
                   key={link.label}
                   href={link.href}
-                  className="px-4 py-3 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary rounded-lg transition-colors"
+                  className="px-5 py-4 font-mono text-xs uppercase tracking-[0.2em] hover:bg-foreground hover:text-background transition-colors"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.label}
                 </a>
               ))}
-              <div className="pt-2 mt-2 border-t border-border">
-                <Button variant="hero" className="w-full" asChild>
-                  <a href="#contato" onClick={() => setIsMobileMenuOpen(false)}>
-                    Contato
-                  </a>
-                </Button>
-              </div>
+              <a
+                href="#contato"
+                className="px-5 py-4 font-mono text-xs uppercase tracking-[0.2em] bg-foreground text-background"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Contato
+              </a>
             </div>
           </nav>
         )}
