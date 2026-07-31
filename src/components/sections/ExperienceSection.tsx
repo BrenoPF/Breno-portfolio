@@ -1,13 +1,13 @@
-import { Building2, Calendar, ChevronRight } from "lucide-react";
+import Reveal from "@/components/Reveal";
 
 const ExperienceSection = () => {
   const experiences = [
     {
       company: "Moovus",
       role: "Suporte Técnico",
-      period: "2024 - atual",
+      period: "2024 — atual",
       type: "Full-time",
-      description: " Análise e resolução de chamados via Jira com foco em experiência do usuário.",
+      description: "Análise e resolução de chamados via Jira com foco em experiência do usuário.",
       achievements: [
         "Identificação de inconsistências cadastrais e melhoria de processos internos.",
         "Forte atuação em diagnóstico de problemas e comunicação técnica.",
@@ -16,98 +16,68 @@ const ExperienceSection = () => {
     {
       company: "Desenvolvedor Freelancer",
       role: "Frontend Developer",
-      period: "2025-2026",
-      type: "",
+      period: "2025 — 2026",
+      type: "Freelance",
       description: "Desenvolvimento de landing pages responsivas utilizando HTML, CSS e JavaScript.",
       achievements: [
         "Integração com APIs REST e consumo de dados em JSON",
         "Correção de bugs e melhorias de performance",
-        "Versionamento de código com Git"
+        "Versionamento de código com Git",
       ],
     },
   ];
 
   return (
-    <section id="experiencia" className="py-24 relative bg-card/30">
+    <section id="experiencia" className="py-24 lg:py-32 border-t border-foreground/20 bg-secondary/40">
       <div className="container">
-        <div className="max-w-4xl mx-auto">
-          {/* Section Header */}
-          <div className="text-center mb-16">
-            <span className="inline-block px-3 py-1 text-sm font-mono text-primary bg-primary/10 rounded-full mb-4">
-              Experiência Profissional
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-              Trajetória de{" "}
-              <span className="text-gradient">crescimento</span>
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Cada experiência me preparou para entregar mais valor e liderar com excelência técnica.
+        <Reveal>
+          <div className="flex flex-wrap items-end justify-between gap-4 border-b border-foreground/20 pb-6 mb-12">
+            <div>
+              <span className="eyebrow block mb-2">§ Trajetória</span>
+              <h2 className="font-display text-4xl sm:text-5xl leading-[0.9]">
+                Experiência
+                <br />
+                profissional
+              </h2>
+            </div>
+            <p className="max-w-sm text-sm text-muted-foreground">
+              Cada experiência me preparou para entregar mais valor com excelência técnica.
             </p>
           </div>
+        </Reveal>
 
-          {/* Timeline */}
-          <div className="relative">
-            {/* Timeline Line */}
-            <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-border md:-translate-x-1/2" />
-
-            {experiences.map((exp, idx) => (
-              <div
-                key={exp.company}
-                className={`relative mb-12 last:mb-0 ${
-                  idx % 2 === 0 ? "md:pr-8 md:text-right" : "md:pl-8 md:ml-1/2"
-                }`}
-              >
-                {/* Timeline Dot */}
-                <div className={`absolute top-0 w-4 h-4 rounded-full border-4 border-background bg-primary ${
-                  idx % 2 === 0 
-                    ? "left-0 md:left-auto md:right-0 md:translate-x-1/2" 
-                    : "left-0 md:-translate-x-1/2"
-                }`} />
-
-                {/* Content Card */}
-                <div className={`ml-8 md:ml-0 ${idx % 2 === 0 ? "md:mr-8" : "md:ml-8"}`}>
-                  <div className="p-6 rounded-xl border border-border bg-card/80 hover:border-primary/30 transition-all duration-300 hover-lift">
-                    {/* Header */}
-                    <div className={`flex items-start gap-4 mb-4 ${idx % 2 === 0 ? "md:flex-row-reverse" : ""}`}>
-                      <div className="p-3 rounded-lg bg-primary/10 text-primary shrink-0">
-                        <Building2 size={24} />
-                      </div>
-                      <div className={idx % 2 === 0 ? "md:text-right" : ""}>
-                        <h3 className="text-xl font-bold">{exp.role}</h3>
-                        <p className="text-primary font-medium">{exp.company}</p>
-                        <div className="flex items-center gap-2 text-sm text-muted-foreground mt-1">
-                          <Calendar size={14} />
-                          <span>{exp.period}</span>
-                          <span className="px-2 py-0.5 text-xs bg-secondary rounded-full">
-                            {exp.type}
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <p className={`text-muted-foreground mb-4 ${idx % 2 === 0 ? "md:text-right" : ""}`}>
-                      {exp.description}
-                    </p>
-
-                    {/* Achievements */}
-                    <ul className={`space-y-2 ${idx % 2 === 0 ? "md:text-right" : ""}`}>
-                      {exp.achievements.map((achievement, i) => (
-                        <li
-                          key={i}
-                          className={`flex items-start gap-2 text-sm ${
-                            idx % 2 === 0 ? "md:flex-row-reverse" : ""
-                          }`}
-                        >
-                          <ChevronRight size={16} className="text-primary shrink-0 mt-0.5" />
-                          <span className="text-muted-foreground">{achievement}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+        <div className="divide-y divide-foreground/15 border-y border-foreground/15">
+          {experiences.map((exp, idx) => (
+            <Reveal key={exp.company} delay={idx * 100}>
+              <div className="grid lg:grid-cols-12 gap-6 py-10 group transition-colors duration-500 hover:bg-background">
+                <div className="lg:col-span-3">
+                  <span className="font-mono text-xs text-muted-foreground">{exp.period}</span>
+                  <p className="eyebrow mt-1">{exp.type}</p>
+                </div>
+                <div className="lg:col-span-4">
+                  <h3 className="font-display text-2xl leading-[0.95] group-hover:translate-x-1 transition-transform duration-500">
+                    {exp.role}
+                  </h3>
+                  <p className="mt-2 font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground">
+                    {exp.company}
+                  </p>
+                </div>
+                <div className="lg:col-span-5">
+                  <p className="text-muted-foreground leading-relaxed mb-4">{exp.description}</p>
+                  <ul className="space-y-2">
+                    {exp.achievements.map((a, i) => (
+                      <li key={i} className="flex gap-3 text-sm">
+                        <span className="font-mono text-[0.65rem] pt-1 text-muted-foreground">
+                          {String(i + 1).padStart(2, "0")}
+                        </span>
+                        <span>{a}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
-            ))}
-          </div>
+            </Reveal>
+          ))}
         </div>
       </div>
     </section>
