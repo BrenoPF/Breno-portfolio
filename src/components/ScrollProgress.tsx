@@ -1,15 +1,19 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
 
 const ScrollProgress = () => {
-  const [progress, setProgress] = useState(0);
+  const barRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     let frame = 0;
+    let ticking = false;
     const onScroll = () => {
-      cancelAnimationFrame(frame);
+      if (ticking) return;
+      ticking = true;
       frame = requestAnimationFrame(() => {
         const max = document.documentElement.scrollHeight - window.innerHeight;
-        setProgress(max > 0 ? (window.scrollY / max) * 100 : 0);
+        const p = max > 0 ? window.scrollY / max : 0;
+        if (barRef.current) barRef.current.style.transform = `scaleX(${p})`;
+        ticking = false;
       });
     };
     onScroll();
@@ -23,8 +27,9 @@ const ScrollProgress = () => {
   return (
     <div className="fixed top-0 left-0 right-0 z-[70] h-[2px] bg-transparent" aria-hidden="true">
       <div
-        className="h-full bg-foreground origin-left"
-        style={{ width: `${progress}%` }}
+        ref={barRef}
+        className="h-full w-full bg-foreground origin-left will-change-transform"
+        style={{ transform: "scaleX(0)" }}
       />
     </div>
   );
