@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Github, ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
+import PeelImage from "@/components/PeelImage";
 
 const ProjectsSection = () => {
   const projects = [
