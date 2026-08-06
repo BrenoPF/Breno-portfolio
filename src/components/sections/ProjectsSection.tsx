@@ -111,11 +111,10 @@ const ProjectsSection = () => {
                 <div className="lg:col-span-4">
                   <div className="relative overflow-hidden border border-foreground/15 aspect-[4/3] bg-secondary">
                     {project.image ? (
-                      <img
+                      <PeelImage
                         src={project.image}
                         alt={`Prévia do projeto ${project.title}`}
-                        loading="lazy"
-                        className="w-full h-full object-cover grayscale contrast-125 transition-all duration-[900ms] [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] group-hover:grayscale-0 group-hover:scale-[1.04]"
+                        className="w-full h-full"
                       />
                     ) : (
                       <div className="w-full h-full flex items-center justify-center">
