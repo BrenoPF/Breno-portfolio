@@ -166,7 +166,7 @@ const TechStackSection = () => {
         <Reveal delay={150}>
           <div className="mt-10 flex items-center gap-6">
             <div className="h-px flex-1 bg-foreground/10" />
-            <span className="eyebrow whitespace-nowrap opacity-60">
+            <span className="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-foreground/50 whitespace-nowrap">
               Domínio técnico baseado em projetos reais
             </span>
             <div className="h-px flex-1 bg-foreground/10" />
