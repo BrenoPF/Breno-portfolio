@@ -36,7 +36,7 @@ const PeelImage = ({ src, alt, className = "" }: PeelImageProps) => {
 
       {/* Camada "papel" que descasca seguindo o cursor */}
       <div
-        className="absolute inset-0 bg-secondary/95 pointer-events-none transition-[mask-size] duration-500 ease-out"
+        className="peel-layer absolute inset-0 bg-secondary/95 pointer-events-none"
         style={{
           maskImage: "radial-gradient(circle, transparent 0%, black 100%)",
           WebkitMaskImage: "radial-gradient(circle, transparent 0%, black 100%)",
@@ -46,6 +46,7 @@ const PeelImage = ({ src, alt, className = "" }: PeelImageProps) => {
           WebkitMaskSize: "0% 0%",
           maskRepeat: "no-repeat",
           WebkitMaskRepeat: "no-repeat",
+          transition: "mask-size 0.5s cubic-bezier(0.16,1,0.3,1), -webkit-mask-size 0.5s cubic-bezier(0.16,1,0.3,1)",
         }}
       />
 
