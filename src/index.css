@@ -142,6 +142,16 @@
     box-shadow: var(--shadow-lift);
   }
 
+  /* Peel image reveal */
+  .peel-layer {
+    transition: mask-size 0.55s var(--ease-editorial), -webkit-mask-size 0.55s var(--ease-editorial);
+  }
+
+  .group:hover .peel-layer {
+    mask-size: 280% 280% !important;
+    -webkit-mask-size: 280% 280% !important;
+  }
+
   .text-gradient {
     @apply italic;
     font-family: 'Hind', sans-serif;
