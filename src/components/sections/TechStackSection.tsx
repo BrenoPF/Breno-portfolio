@@ -4,6 +4,7 @@ const TechStackSection = () => {
   const categories = [
     {
       title: "Frontend",
+      context: "Interface",
       techs: [
         { name: "React", level: "Expert" },
         { name: "Next.js", level: "Expert" },
@@ -15,6 +16,7 @@ const TechStackSection = () => {
     },
     {
       title: "Backend",
+      context: "Lógica & Core",
       techs: [
         { name: "Node.js", level: "Expert" },
         { name: "Express", level: "Expert" },
@@ -26,6 +28,7 @@ const TechStackSection = () => {
     },
     {
       title: "Banco de Dados",
+      context: "Persistência",
       techs: [
         { name: "PostgreSQL", level: "Expert" },
         { name: "MongoDB", level: "Avançado" },
@@ -37,6 +40,7 @@ const TechStackSection = () => {
     },
     {
       title: "DevOps & Infra",
+      context: "Infraestrutura",
       techs: [
         { name: "Docker", level: "Avançado" },
         { name: "AWS", level: "Avançado" },
@@ -48,9 +52,10 @@ const TechStackSection = () => {
     },
     {
       title: "IA Aplicada",
+      context: "Inteligência",
       highlight: true,
       techs: [
-        { name: "ChatGPT/Claude", level: "Expert" },
+        { name: "ChatGPT / Claude", level: "Expert" },
         { name: "GitHub Copilot", level: "Expert" },
         { name: "Cursor AI", level: "Expert" },
         { name: "LangChain", level: "Avançado" },
@@ -60,9 +65,10 @@ const TechStackSection = () => {
     },
     {
       title: "Outras Skills",
+      context: "Híbrido",
       techs: [
-        { name: "Git/GitHub", level: "Expert" },
-        { name: "Agile/Scrum", level: "Avançado" },
+        { name: "Git / GitHub", level: "Expert" },
+        { name: "Agile / Scrum", level: "Avançado" },
         { name: "Code Review", level: "Expert" },
         { name: "Testing", level: "Avançado" },
         { name: "Clean Code", level: "Expert" },
@@ -71,57 +77,101 @@ const TechStackSection = () => {
     },
   ];
 
+  const levelWeight = { Expert: 3, Avançado: 2, Intermediário: 1 } as const;
+
   return (
     <section id="stack" className="py-24 lg:py-32 border-t border-foreground/20 bg-secondary/40">
       <div className="container">
         <Reveal>
-          <div className="flex flex-wrap items-end justify-between gap-4 border-b border-foreground/20 pb-6 mb-12">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 border-b border-foreground/20 pb-6 mb-14">
             <div>
-              <span className="eyebrow block mb-2">§ Stack técnica</span>
-              <h2 className="font-display text-4xl sm:text-5xl leading-[0.9]">
+              <span className="eyebrow block mb-3">§ Stack técnica</span>
+              <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl leading-[0.9]">
                 Tecnologias
                 <br />
                 que domino
               </h2>
             </div>
-            <p className="max-w-sm text-sm text-muted-foreground">
-              Um arsenal completo para construir aplicações modernas, escaláveis e de alta
-              performance.
+            <p className="max-w-sm text-sm text-muted-foreground md:text-right leading-relaxed">
+              Curadoria técnica focada em performance, escalabilidade e experiência do usuário final.
             </p>
           </div>
         </Reveal>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-foreground/15 border border-foreground/15">
-          {categories.map((category, idx) => (
-            <Reveal key={category.title} delay={(idx % 3) * 100}>
-              <div
-                className={`h-full p-7 transition-colors duration-500 ${
-                  category.highlight ? "bg-foreground text-background" : "bg-background hover:bg-card"
-                }`}
-              >
-                <div className="flex items-baseline justify-between mb-5">
-                  <h3 className="font-display text-lg">{category.title}</h3>
-                  <span className={`font-mono text-[0.7rem] ${category.highlight ? "opacity-70" : "text-muted-foreground"}`}>
-                    {String(idx + 1).padStart(2, "0")}
-                  </span>
-                </div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-foreground/10 border border-foreground/10">
+          {categories.map((category, idx) => {
+            const isHighlight = category.highlight;
+            return (
+              <Reveal key={category.title} delay={(idx % 3) * 100}>
+                <div
+                  className={`h-full p-7 lg:p-8 transition-colors duration-500 group ${
+                    isHighlight
+                      ? "bg-foreground text-background hover:bg-foreground/95"
+                      : "bg-background hover:bg-card"
+                  }`}
+                >
+                  <div className="flex items-baseline justify-between mb-8">
+                    <div>
+                      <span
+                        className={`font-mono text-[0.65rem] uppercase tracking-[0.2em] block mb-2 ${
+                          isHighlight ? "opacity-60" : "text-muted-foreground"
+                        }`}
+                      >
+                        {String(idx + 1).padStart(2, "0")} / {category.context}
+                      </span>
+                      <h3 className="font-display text-xl lg:text-2xl">{category.title}</h3>
+                    </div>
+                  </div>
 
-                <ul className={`divide-y ${category.highlight ? "divide-background/25" : "divide-foreground/10"}`}>
-                  {category.techs.map((tech) => (
-                    <li key={tech.name} className="flex items-center justify-between py-2.5 group">
-                      <span className="font-mono text-sm group-hover:translate-x-1 transition-transform duration-500">
-                        {tech.name}
-                      </span>
-                      <span className={`text-[0.65rem] font-mono uppercase tracking-[0.14em] ${category.highlight ? "opacity-70" : "text-muted-foreground"}`}>
-                        {tech.level}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </Reveal>
-          ))}
+                  <ul className="space-y-3">
+                    {category.techs
+                      .sort((a, b) => levelWeight[b.level] - levelWeight[a.level])
+                      .map((tech) => {
+                        const isExpert = tech.level === "Expert";
+                        return (
+                          <li
+                            key={tech.name}
+                            className="flex items-center justify-between gap-4 py-2 border-b border-current/10 group/item"
+                          >
+                            <span
+                              className={`font-sans text-sm font-medium transition-transform duration-500 group-hover/item:translate-x-1 ${
+                                isHighlight ? "text-background" : "text-foreground"
+                              }`}
+                            >
+                              {tech.name}
+                            </span>
+                            <span
+                              className={`shrink-0 font-mono text-[0.6rem] uppercase tracking-[0.14em] px-2 py-0.5 border transition-colors duration-300 ${
+                                isHighlight
+                                  ? isExpert
+                                    ? "border-background/80 bg-background/10"
+                                    : "border-background/30 opacity-70"
+                                  : isExpert
+                                    ? "border-foreground/60 bg-foreground/[0.03] group-hover/item:bg-foreground/5"
+                                    : "border-foreground/15 text-muted-foreground"
+                              }`}
+                            >
+                              {tech.level}
+                            </span>
+                          </li>
+                        );
+                      })}
+                  </ul>
+                </div>
+              </Reveal>
+            );
+          })}
         </div>
+
+        <Reveal delay={150}>
+          <div className="mt-10 flex items-center gap-6">
+            <div className="h-px flex-1 bg-foreground/10" />
+            <span className="eyebrow whitespace-nowrap opacity-60">
+              Domínio técnico baseado em projetos reais
+            </span>
+            <div className="h-px flex-1 bg-foreground/10" />
+          </div>
+        </Reveal>
       </div>
     </section>
   );
